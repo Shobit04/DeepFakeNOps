@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot UI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#chat-form').on('submit', function(event){
+                event.preventDefault();
+                var user_input = $('#user-input').val();
+                $('#user-input').val('');
+                $.ajax({
+                    url: '/chat',
+                    method: 'POST',
+                    data: {user_input: user_input},
+                    success: function(response){
+                        var chatbot_response = response['response'];
+                        $('#chat-log').append('<div class="user-msg">You: ' + user_input + '</div>');
+                        $('#chat-log').append('<div class="bot-msg">ChatBot: ' + chatbot_response + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        #chat-log {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        .user-msg {
+            color: blue;
+        }
+        .bot-msg {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot UI</h1>
+    <div id="chat-log"></div>
+    <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type here...">
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>

@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Video Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            flex: auto;
+            z-index: -1;
+            display: flex;
+           height: 100vh;
+          justify-content: center;
+          align-items: center;
+          }
+
+          h1 {  
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+          }
+   
+          #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: -1;
+          }
+         
+     
+
+        .container {
+            max-width: 400px;
+            background-color: #3d0851;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #videoForm {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="file"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            text-decoration: double;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        #predictionResult {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+ 
+  <body>      
+<div id="particles-js"></div>
+    <div class="container">
+        <h1 style="font-family: 'Roboto', cursive; color: #ff6f61; font-weight: bold; font-size: 65px">Video <br><span style="font-family: 'Playfair Display', sans-serif; color: #2ecc71;font: size 50px;">Prediction</span></h1>
+        <form id="videoForm" method="post" enctype="multipart/form-data">
+            <label for="videoFile">Upload Video:</label>
+            <input type="file" id="videoFile" name="videoFile" accept="video/*">
+            <button type="submit">Predict</button>
+        </form>
+        <div id="predictionResult"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 120,
+        "density": {
+          "enable": false,
+          "value_area": 8000
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "triangle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 4
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 1.5,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 50,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.2,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+</body>
+
+</html>
